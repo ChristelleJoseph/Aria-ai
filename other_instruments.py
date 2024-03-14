@@ -81,7 +81,7 @@ def create_Banjo_track(measures=16, scale_pattern=['C', 'D', 'E', 'G', 'A']):
         note_name = melody_notes[i % len(melody_notes)]  # Cycle through notes within the scale
 
         # Append the note four times per measure to create a melodic line
-        for _ in range(4):
+        for _ in range(8):
             n = note.Note(note_name)
             n.duration = duration.Duration("whole")  # Set note duration to quarter for a melodic rhythm
             banjo_part.append(n)
