@@ -71,19 +71,20 @@ def create_Banjo_track(measures=16, scale_pattern=['C', 'D', 'E', 'G', 'A']):
     banjo_part = stream.Part()
     banjo_part.insert(0, instrument.Banjo())
 
+    # Define a basic melody pattern using a scale
+    # This pattern can be adjusted to fit the style of the song better
     melody_notes = scale_pattern * (measures // len(scale_pattern) + 1)
 
     # Iterate over the measures
     for i in range(measures):
         # Pick a note from the melody pattern
         note_name = melody_notes[i % len(melody_notes)]  # Cycle through notes within the scale
-        # Create a note with the chosen name
-        n = note.Note(note_name)
-        n.duration = duration.Duration("quarter")  # Set note duration to quarter for a melodic rhythm
 
         # Append the note four times per measure to create a melodic line
         for _ in range(4):
-            banjo_part.append(n.clone())
+            n = note.Note(note_name)
+            n.duration = duration.Duration("quarter")  # Set note duration to quarter for a melodic rhythm
+            banjo_part.append(n)
 
     # Return the banjo part stream
     return banjo_part
