@@ -208,7 +208,7 @@ footer="""<style>
     text-align: center;
 }
 </style>
-<div class="a">Made with ❤️ by Christelle J </div>
+<div class="a">Made with ❤️ by Christelle </div>
 """
 st.markdown(footer,unsafe_allow_html=True)
 
