@@ -144,8 +144,9 @@ def show():
         # soundfont_path_1 = os.path.join(current_dir, 'soundfonts', 'Rocchetta.sf2')
         # soundfont_path_2 = os.path.join(current_dir, 'soundfonts', 'ClubSawHD.sf2')
 
-        soundfont_path_1 = 'https://storage.cloud.google.com/aria-ai-bucket/Rocchetta.sf2'
-        soundfont_path_2 = 'https://storage.cloud.google.com/aria-ai-bucket/ClubSawHD.sf2'
+        soundfont_path_1 = 'https://storage.googleapis.com/aria-ai-bucket/Rocchetta.sf2'
+        soundfont_path_2 = 'https://storage.googleapis.com/aria-ai-bucket/ClubSawHD.sf2'
+
 
 
         local_soundfont_path_1 = download_file(soundfont_path_1, 'temp_Rocchetta.sf2')
@@ -154,7 +155,7 @@ def show():
 
 
         # Convert Original MIDI to WAV
-        fs = FluidSynth(soundfont_path_2)
+        fs = FluidSynth(local_soundfont_path_1)
         fs.midi_to_audio(midi_file, 'music_output/output.wav')
         audio_path = 'music_output/output.wav'
 
@@ -164,14 +165,14 @@ def show():
 
         # Convert Original MIDI to EDM WAV
 
-        fs = FluidSynth(soundfont_path_2)
+        fs = FluidSynth(local_soundfont_path_2)
         fs.midi_to_audio(midi_file, 'music_output/output_techno.wav')
         edm_track = 'music_output/output_techno.wav'
         st.title("EDM-ify")
         st.audio(edm_track)
 
 
-        garageband_edited = 'https://storage.cloud.google.com/aria-ai-bucket/track2.mp3'
+        garageband_edited = 'https://storage.googleapis.com/aria-ai-bucket/track2.mp3'
 
         st.write('the idea is you can take this and put it into a software....')
         st.audio(garageband_edited)
