@@ -168,8 +168,9 @@ def show():
         edm_track = 'music_output/output_techno.wav'
         st.title("EDM-ify")
         st.write("""
-                Note: \n The audio quality and overall harmony may vary based on the accompanying instruments chosen.
+                Note: The audio quality and overall harmony may vary based on the accompanying instruments chosen.
                 This can be attributed to the synth soundfont (.s2f) utilized (best I could find). See Technical details section.
+                But, the idea is that you can import the file import a DAW and experiment with whichever sound you like.
                  """)
         st.audio(edm_track)
 
