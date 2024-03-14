@@ -170,7 +170,8 @@ def show():
         st.write("""
                 Note: The audio quality and overall harmony may vary based on the accompanying instruments chosen.
                 This can be attributed to the synth soundfont (.s2f) utilized (best I could find). See Technical details section.
-                But, the idea is that you can import the file import a DAW and experiment with whichever sound you like.
+                But, the idea is that you can import the file import a digital audio workstation like GarageBand
+                and experiment with whichever sound you like.
                  """)
         st.audio(edm_track)
 
@@ -179,12 +180,12 @@ def show():
 
         st.write("""
 
-                    Garageband post production.
+                    GarageBand post production.
 
                  """)
         st.audio(garageband_edited)
 
-        col1, col2, col3 = st.columns([2,2,2])
+        col1, col2, col3 = st.columns([2,3,2])
         with open(midi_file, "rb") as file:
             # Place the download button in the middle column
             with col2:
