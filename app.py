@@ -7,12 +7,20 @@ st.set_page_config(
 import sys
 import os
 
+
 if 'streamlit' in os.environ:
     current_dir = os.getcwd()
 else:
     current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
+
+
+if os.path.exists('temp_Rocchetta.sf2'):
+    os.remove('temp_Rocchetta.sf2')
+
+if os.path.exists('temp_ClubSawHD.sf2'):
+    os.remove('temp_ClubSawHD.sf2')
 
 # Importing after adding the parent directory to the path
 from predict import generate
@@ -52,6 +60,15 @@ def add_bg_from_url(img, position='center'):
         """,
         unsafe_allow_html=True)
 
+import requests
+
+def download_file(url, local_filename):
+    with requests.get(url, stream=True) as r:
+        r.raise_for_status()
+        with open(local_filename, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=8192):
+                f.write(chunk)
+    return local_filename
 
 def show():
     rainbow_colors = ['#693C72', '#C15050', '#D97642', '#337357', '#D49D42']
@@ -130,8 +147,14 @@ def show():
         soundfont_path_1 = 'https://storage.cloud.google.com/aria-ai-bucket/Rocchetta.sf2'
         soundfont_path_2 = 'https://storage.cloud.google.com/aria-ai-bucket/ClubSawHD.sf2'
 
+
+        local_soundfont_path_1 = download_file(soundfont_path_1, 'temp_Rocchetta.sf2')
+        local_soundfont_path_2 = download_file(soundfont_path_2, 'temp_ClubSawHD.sf2')
+
+
+
         # Convert Original MIDI to WAV
-        fs = FluidSynth(soundfont_path_1)
+        fs = FluidSynth('temp_Rocchetta.sf2')
         fs.midi_to_audio(midi_file, 'music_output/output.wav')
         audio_path = 'music_output/output.wav'
 
@@ -141,12 +164,11 @@ def show():
 
         # Convert Original MIDI to EDM WAV
 
-        fs = FluidSynth(soundfont_path_2)
+        fs = FluidSynth(local_soundfont_path_2)
         fs.midi_to_audio(midi_file, 'music_output/output_techno.wav')
         edm_track = 'music_output/output_techno.wav'
         st.title("EDM-ify")
         st.audio(edm_track)
-
 
 footer="""<style>
 .a {
