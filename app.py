@@ -115,7 +115,7 @@ def show():
     if st.button('Generate Music'):
         placeholder = st.empty()
         placeholder.text("Generating Music...")
-        for i in range(60):
+        for i in range(40):
             placeholder.text(f"Generating Music{'.' * (i % 4 + 1)}")
             time.sleep(0.1)  # Adjusted for example, consider your actual generation time
         # Call the generate function with the selected instruments
@@ -168,7 +168,7 @@ def show():
         edm_track = 'music_output/output_techno.wav'
         st.title("EDM-ify")
         st.write("""
-                Note: The audio quality and overall harmony may vary based on the accompanying instruments chosen. (Just Piano give better result)
+                Note: The audio quality and overall harmony may vary based on the accompanying instruments chosen. (Just 'lead instuments' give better results)
                 This can be attributed to the synth soundfont (.s2f) utilized (best I could find). See Technical details section.
                 But, the idea is that you can import the file import a digital audio workstation like GarageBand
                 and experiment with whichever sound you like.
@@ -180,7 +180,7 @@ def show():
 
         st.write("""
 
-                    GarageBand post production.
+                    GarageBand post production (with accompanying instruments).
 
                  """)
         st.audio(garageband_edited)
