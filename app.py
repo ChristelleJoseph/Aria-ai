@@ -169,7 +169,7 @@ def show():
         st.title("EDM-ify")
         st.write("""
                 Note: The audio quality and overall harmony may vary based on the accompanying instruments chosen.
-                This can be attributed to the soundfont (.s2f) utilized. See Technical details section.
+                This can be attributed to the synth soundfont (.s2f) utilized (best I could find). See Technical details section.
                  """)
         st.audio(edm_track)
 
@@ -177,10 +177,24 @@ def show():
         garageband_edited = 'https://storage.googleapis.com/aria-ai-bucket/track2.mp3'
 
         st.write("""
-                 Recommnedation: import file in digital audio workstation like GarageBand. And have fun being a DJ!
-                 Example:
+
+                    Garageband post production.
+
                  """)
         st.audio(garageband_edited)
+
+        col1, col2, col3 = st.columns([1,2,1])
+        with open(midi_file, "rb") as file:
+            # Place the download button in the middle column
+            with col2:
+                st.download_button(
+                    label="Download MIDI",
+                    data=file,
+                    file_name="generated_song.mid",
+                    mime="audio/midi"
+                )
+
+
 
 footer="""<style>
 .a {
