@@ -74,17 +74,11 @@ def create_Banjo_track(measures=16, scale_pattern=['C', 'D', 'E', 'G', 'A']):
     # Define a basic melody pattern using a scale
     # This pattern can be adjusted to fit the style of the song better
     melody_notes = scale_pattern * (measures // len(scale_pattern) + 1)
-
-    # Iterate over the measures
     for i in range(measures):
-        # Pick a note from the melody pattern
-        note_name = melody_notes[i % len(melody_notes)]  # Cycle through notes within the scale
+        note_name = melody_notes[i % len(melody_notes)]
 
-        # Append the note four times per measure to create a melodic line
-        for _ in range(8):
+        for _ in range(2):
             n = note.Note(note_name)
-            n.duration = duration.Duration("whole")  # Set note duration to quarter for a melodic rhythm
+            n.duration = duration.Duration("whole")
             banjo_part.append(n)
-
-    # Return the banjo part stream
     return banjo_part
