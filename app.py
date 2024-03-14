@@ -154,7 +154,7 @@ def show():
 
 
         # Convert Original MIDI to WAV
-        fs = FluidSynth('temp_Rocchetta.sf2')
+        fs = FluidSynth(soundfont_path_2)
         fs.midi_to_audio(midi_file, 'music_output/output.wav')
         audio_path = 'music_output/output.wav'
 
@@ -164,7 +164,7 @@ def show():
 
         # Convert Original MIDI to EDM WAV
 
-        fs = FluidSynth(local_soundfont_path_2)
+        fs = FluidSynth(soundfont_path_2)
         fs.midi_to_audio(midi_file, 'music_output/output_techno.wav')
         edm_track = 'music_output/output_techno.wav'
         st.title("EDM-ify")
