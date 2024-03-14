@@ -48,23 +48,19 @@ def create_Banjo_track(measures=16):
     banjo_part = stream.Part()
     banjo_part.insert(0, instrument.Banjo())
 
-    # Define the chords to be included in the melody
-    melody_chords = [
-        chord.Chord(['G', 'B', 'D']),  # G Major
-        chord.Chord(['C', 'E', 'G']),  # C Major
-        chord.Chord(['D', 'F#', 'A', 'C']),  # D7
-        chord.Chord(['E', 'G', 'B']),  # E minor
-        chord.Chord(['A', 'C', 'E'])  # A minor
+    chord_progressions = [
+        ['G', 'B', 'D'],  # G Major
+        ['C', 'E', 'G'],  # C Major
+        ['D', 'F#', 'A', 'C'],  # D7
+        ['E', 'G', 'B'],  # E minor
+        ['A', 'C', 'E']  # A minor
     ]
 
-    # Iterate over the measures
     for i in range(measures):
-        # Pick a chord from the melody, cycling through the chords
-        current_chord = melody_chords[i % len(melody_chords)]  # Cycle through chords
-        # Set the duration for the whole chord
-        for note_in_chord in current_chord.notes:
-            note_in_chord.duration = duration.Duration("whole")  # One chord per measure
+        chord_notes = chord_progressions[i % len(chord_progressions)]
+        current_chord = chord.Chord(chord_notes)
+        current_chord.duration = duration.Duration("whole")  # Set duration to whole note
+
         banjo_part.append(current_chord)
 
-    # Return the banjo part stream
     return banjo_part
