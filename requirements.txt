@@ -1,0 +1,11 @@
+streamlit
+matplotlib
+librosa
+music21
+numpy
+tensorflow
+pretty-midi
+midi2audio
+mido
+pyFluidSynth
+soundfile
