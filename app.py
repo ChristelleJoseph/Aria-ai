@@ -170,6 +170,12 @@ def show():
         st.title("EDM-ify")
         st.audio(edm_track)
 
+
+        garageband_edited = 'https://storage.cloud.google.com/aria-ai-bucket/track2.mp3'
+
+        st.write('the idea is you can take this and put it into a software....')
+        st.audio(garageband_edited)
+
 footer="""<style>
 .a {
     position: fixed;
