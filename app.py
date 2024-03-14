@@ -1,6 +1,6 @@
 import streamlit as st
 st.set_page_config(
-    page_title='Aria.ai - test',
+    page_title='Aria.ai',
     page_icon= "🎧"
 )
 
@@ -69,6 +69,8 @@ def download_file(url, local_filename):
             for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
     return local_filename
+
+
 
 def show():
     rainbow_colors = ['#693C72', '#C15050', '#D97642', '#337357', '#D49D42']
@@ -147,15 +149,11 @@ def show():
         soundfont_path_1 = 'https://storage.googleapis.com/aria-ai-bucket/Rocchetta.sf2'
         soundfont_path_2 = 'https://storage.googleapis.com/aria-ai-bucket/ClubSawHD.sf2'
 
-
-
-        local_soundfont_path_1 = download_file(soundfont_path_1, 'temp_Rocchetta.sf2')
+        # local_soundfont_path_1 = download_file(soundfont_path_1, 'temp_Rocchetta.sf2')
         local_soundfont_path_2 = download_file(soundfont_path_2, 'temp_ClubSawHD.sf2')
 
-
-
         # Convert Original MIDI to WAV
-        fs = FluidSynth(local_soundfont_path_1)
+        fs = FluidSynth(soundfont_path_1)
         fs.midi_to_audio(midi_file, 'music_output/output.wav')
         audio_path = 'music_output/output.wav'
 
