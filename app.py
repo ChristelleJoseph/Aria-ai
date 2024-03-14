@@ -184,7 +184,7 @@ def show():
                  """)
         st.audio(garageband_edited)
 
-        col1, col2, col3 = st.columns([1,3,1])
+        col1, col2, col3 = st.columns([3,1,3])
         with open(midi_file, "rb") as file:
             # Place the download button in the middle column
             with col2:
