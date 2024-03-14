@@ -115,7 +115,7 @@ def show():
     if st.button('Generate Music'):
         placeholder = st.empty()
         placeholder.text("Generating Music...")
-        for i in range(40):
+        for i in range(60):
             placeholder.text(f"Generating Music{'.' * (i % 4 + 1)}")
             time.sleep(0.1)  # Adjusted for example, consider your actual generation time
         # Call the generate function with the selected instruments
@@ -184,7 +184,7 @@ def show():
                  """)
         st.audio(garageband_edited)
 
-        col1, col2, col3 = st.columns([3,1,3])
+        col1, col2, col3 = st.columns([2,2,2])
         with open(midi_file, "rb") as file:
             # Place the download button in the middle column
             with col2:
