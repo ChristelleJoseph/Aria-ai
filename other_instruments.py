@@ -3,7 +3,7 @@ from music21 import tempo, instrument, note, chord, stream, percussion, duration
 
 def create_hard_drum_track(measures, tempo=120):
     drum_part = stream.Part()
-    drum_part.append(instrument.SnareDrum())  # Set the part as a percussion instrument
+    drum_part.append(instrument.BassDrum())  # Set the part as a percussion instrument
 
     # Define the drum pattern for each measure
     for measure in range(measures):
