@@ -15,7 +15,6 @@ def create_hard_drum_track(measures, tempo=120):
                 bass_drum.duration = duration.Duration(1)  # One beat long
                 drum_part.insert(measure * 4 + beat, bass_drum)
 
-            # Add a snare drum on beats 2 and 4
             if beat in [1, 3]:
                 snare_drum = note.Note()
                 snare_drum.pitch.midi = 38  # MIDI note for Acoustic Snare
@@ -67,17 +66,12 @@ def create_hard_drum_track(measures, tempo=120):
 
 
 def create_Banjo_track(measures=16, scale_pattern=['C', 'D', 'E', 'G', 'A']):
-    # Create a Stream for the banjo part
     banjo_part = stream.Part()
     banjo_part.insert(0, instrument.Banjo())
-
-    # Define a basic melody pattern using a scale
-    # This pattern can be adjusted to fit the style of the song better
     melody_notes = scale_pattern * (measures // len(scale_pattern) + 1)
     for i in range(measures):
         note_name = melody_notes[i % len(melody_notes)]
-
-        for _ in range(2):
+        for _ in range(1):
             n = note.Note(note_name)
             n.duration = duration.Duration("whole")
             banjo_part.append(n)
