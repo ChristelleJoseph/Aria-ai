@@ -168,7 +168,7 @@ def show():
         edm_track = 'music_output/output_techno.wav'
         st.title("EDM-ify")
         st.write("""
-                Note: The audio quality and overall harmony may vary based on the accompanying instruments chosen.
+                Note: \n The audio quality and overall harmony may vary based on the accompanying instruments chosen.
                 This can be attributed to the synth soundfont (.s2f) utilized (best I could find). See Technical details section.
                  """)
         st.audio(edm_track)
@@ -183,7 +183,7 @@ def show():
                  """)
         st.audio(garageband_edited)
 
-        col1, col2, col3 = st.columns([1,2,1])
+        col1, col2, col3 = st.columns([1,3,1])
         with open(midi_file, "rb") as file:
             # Place the download button in the middle column
             with col2:
