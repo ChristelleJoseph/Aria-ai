@@ -65,7 +65,7 @@ def create_hard_drum_track(measures, tempo=120):
 #     return banjo_part
 
 
-def create_Banjo_track(measures=16, scale_pattern=['C', 'D', 'E', 'G', 'A']):
+def create_Banjo_track(measures=16, scale_pattern=['C', 'D', 'E', 'A']):
     banjo_part = stream.Part()
     banjo_part.insert(0, instrument.Banjo())
     melody_notes = scale_pattern * (measures // len(scale_pattern) + 1)
