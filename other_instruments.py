@@ -83,7 +83,7 @@ def create_Banjo_track(measures=16, scale_pattern=['C', 'D', 'E', 'G', 'A']):
         # Append the note four times per measure to create a melodic line
         for _ in range(4):
             n = note.Note(note_name)
-            n.duration = duration.Duration("quarter")  # Set note duration to quarter for a melodic rhythm
+            n.duration = duration.Duration("whole")  # Set note duration to quarter for a melodic rhythm
             banjo_part.append(n)
 
     # Return the banjo part stream
