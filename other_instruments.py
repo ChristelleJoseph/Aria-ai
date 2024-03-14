@@ -43,24 +43,47 @@ def create_hard_drum_track(measures, tempo=120):
 
 #     return banjo_part
 
-def create_Banjo_track(measures=16):
+# def create_Banjo_track(measures=16):
+#     # Create a Stream for the banjo part
+#     banjo_part = stream.Part()
+#     banjo_part.insert(0, instrument.Banjo())
+
+#     chord_progressions = [
+#         ['G', 'B', 'D'],  # G Major
+#         ['C', 'E', 'G'],  # C Major
+#         ['D', 'F#', 'A', 'C'],  # D7
+#         ['E', 'G', 'B'],  # E minor
+#         ['A', 'C', 'E']  # A minor
+#     ]
+
+#     for i in range(measures):
+#         chord_notes = chord_progressions[i % len(chord_progressions)]
+#         current_chord = chord.Chord(chord_notes)
+#         current_chord.duration = duration.Duration("whole")  # Set duration to whole note
+
+#         banjo_part.append(current_chord)
+
+#     return banjo_part
+
+
+def create_Banjo_track(measures=16, scale_pattern=['C', 'D', 'E', 'G', 'A']):
     # Create a Stream for the banjo part
     banjo_part = stream.Part()
     banjo_part.insert(0, instrument.Banjo())
 
-    chord_progressions = [
-        ['G', 'B', 'D'],  # G Major
-        ['C', 'E', 'G'],  # C Major
-        ['D', 'F#', 'A', 'C'],  # D7
-        ['E', 'G', 'B'],  # E minor
-        ['A', 'C', 'E']  # A minor
-    ]
+    melody_notes = scale_pattern * (measures // len(scale_pattern) + 1)
 
+    # Iterate over the measures
     for i in range(measures):
-        chord_notes = chord_progressions[i % len(chord_progressions)]
-        current_chord = chord.Chord(chord_notes)
-        current_chord.duration = duration.Duration("whole")  # Set duration to whole note
+        # Pick a note from the melody pattern
+        note_name = melody_notes[i % len(melody_notes)]  # Cycle through notes within the scale
+        # Create a note with the chosen name
+        n = note.Note(note_name)
+        n.duration = duration.Duration("quarter")  # Set note duration to quarter for a melodic rhythm
 
-        banjo_part.append(current_chord)
+        # Append the note four times per measure to create a melodic line
+        for _ in range(4):
+            banjo_part.append(n.clone())
 
+    # Return the banjo part stream
     return banjo_part
