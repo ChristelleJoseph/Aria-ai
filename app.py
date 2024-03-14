@@ -103,7 +103,7 @@ def show():
     if 'additional_instruments' not in st.session_state:
         st.session_state['additional_instruments'] = []
 
-    st.session_state['lead_instrument'] = instrument.Piano() if lead_instrument_option == 'Piano' else instrument.ElectricGuitar()
+    st.session_state['lead_instrument'] = instrument.Piano() if lead_instrument_option == 'Piano' else instrument.AcousticGuitar()
     st.session_state['additional_instruments'] = []
     if drums:
         st.session_state['additional_instruments'].append('Drums')
