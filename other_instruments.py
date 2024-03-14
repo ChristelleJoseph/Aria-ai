@@ -30,7 +30,7 @@ def create_Banjo_track(measures=16):
     banjo_part.insert(0, instrument.Banjo())
 
     # melody_notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B', 'C']
-    melody_notes = ['C', 'D', 'E']
+    melody_notes = ['C', 'D', 'E', 'E', 'D', 'C']
 
     # Iterate over the measures
     for i in range(measures):
