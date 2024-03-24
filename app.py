@@ -94,9 +94,9 @@ def show():
         )
 
     with col2:
-        st.write("Add accompanying instruments:")
+        st.write("Add accompanying instrument:")
         drums = st.checkbox("Drums", key="drums")
-        banjo = st.checkbox("Banjo", key="banjo")
+        # banjo = st.checkbox("Banjo", key="banjo")
 
     if 'lead_instrument' not in st.session_state:
         st.session_state['lead_instrument'] = None
@@ -107,8 +107,8 @@ def show():
     st.session_state['additional_instruments'] = []
     if drums:
         st.session_state['additional_instruments'].append('Drums')
-    if banjo:
-        st.session_state['additional_instruments'].append('Banjo')
+    # if banjo:
+    #     st.session_state['additional_instruments'].append('Banjo')
 
     # Generating music...
     import time
@@ -117,8 +117,7 @@ def show():
         placeholder.text("Generating Music...")
         for i in range(40):
             placeholder.text(f"Generating Music{'.' * (i % 4 + 1)}")
-            time.sleep(0.1)  # Adjusted for example, consider your actual generation time
-        # Call the generate function with the selected instruments
+            time.sleep(0.1)
         add_parts = st.session_state['additional_instruments']
 
         col1, col2, col3 = st.columns([1, 2, 4])
@@ -143,8 +142,6 @@ def show():
         st.title("Visual Midi Output")
         plot_midi_notes_with_labels(midi_file)
 
-        # soundfont_path_1 = os.path.join(current_dir, 'soundfonts', 'Rocchetta.sf2')
-        # soundfont_path_2 = os.path.join(current_dir, 'soundfonts', 'ClubSawHD.sf2')
 
         soundfont_path_1 = 'https://storage.googleapis.com/aria-ai-bucket/Rocchetta.sf2'
         soundfont_path_2 = 'https://storage.googleapis.com/aria-ai-bucket/ClubSawHD.sf2'
@@ -187,7 +184,6 @@ def show():
 
         col1, col2, col3 = st.columns([2,3,2])
         with open(midi_file, "rb") as file:
-            # Place the download button in the middle column
             with col2:
                 st.download_button(
                     label="Download MIDI",

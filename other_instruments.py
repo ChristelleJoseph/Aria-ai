@@ -23,47 +23,6 @@ def create_hard_drum_track(measures, tempo=120):
 
     return drum_part
 
-# def create_Banjo_track(measures=16):
-#     # Create a Stream for the banjo part
-#     banjo_part = stream.Part()
-#     banjo_part.insert(0, instrument.Banjo())
-
-#     # melody_notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B', 'C']
-#     melody_notes = ['C', 'D', 'E', 'E', 'D', 'C']
-
-#     # Iterate over the measures
-#     for i in range(measures):
-#         # Pick a note from the melody, cycling through the notes in the scale
-#         note_name = melody_notes[i % len(melody_notes)]  # Cycle through notes within the scale
-#         # Create a note
-#         n = note.Note(note_name)
-#         n.duration = duration.Duration("whole")  # One note per measure
-#         banjo_part.append(n)
-
-#     return banjo_part
-
-# def create_Banjo_track(measures=16):
-#     # Create a Stream for the banjo part
-#     banjo_part = stream.Part()
-#     banjo_part.insert(0, instrument.Banjo())
-
-#     chord_progressions = [
-#         ['G', 'B', 'D'],  # G Major
-#         ['C', 'E', 'G'],  # C Major
-#         ['D', 'F#', 'A', 'C'],  # D7
-#         ['E', 'G', 'B'],  # E minor
-#         ['A', 'C', 'E']  # A minor
-#     ]
-
-#     for i in range(measures):
-#         chord_notes = chord_progressions[i % len(chord_progressions)]
-#         current_chord = chord.Chord(chord_notes)
-#         current_chord.duration = duration.Duration("whole")  # Set duration to whole note
-
-#         banjo_part.append(current_chord)
-
-#     return banjo_part
-
 
 def create_Banjo_track(measures=16, scale_pattern=['G', 'A', 'B']):
     banjo_part = stream.Part()

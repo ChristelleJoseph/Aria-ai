@@ -59,22 +59,5 @@ def show():
         LSTMs are widely used for sequence prediction problems, such as time series prediction, natural language processing, speech recognition, and many more applications in areas where the sequence and context of data points are crucial.
         """)
 
-footer="""<style>
-.a {
-    position: fixed;
-    left: 0;
-    bottom: 10px;
-    width: 100%;
-    background-color: white;
-    color: black;
-    text-align: center;
-}
-</style>
-<div class="a">Made with ❤️ by Christelle J </div>
-"""
-st.markdown(footer,unsafe_allow_html=True)
-
-
-# Make sure to call the show function
 if __name__ == "__main__":
     show()

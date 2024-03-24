@@ -9,3 +9,4 @@ midi2audio
 mido
 pyFluidSynth
 soundfile
+requests
