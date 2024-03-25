@@ -125,10 +125,8 @@ def show():
             fun_fact = st.empty()
             fun_fact.success("""
 
-                             Named 'Aria' in honor of the captivating solos that highlight operas and the boldness of Arya Stark,
-                            this title reflects the harmony between artistic elegance and the intelligent complexities of the Neural Network
-
-
+            Named 'Aria' in honor of the captivating solos that highlight operas and the boldness of Arya Stark,
+            this title reflects the harmony between artistic elegance and the intelligent complexities of the Neural Network
                              """)
 
         generate(
@@ -154,6 +152,7 @@ def show():
         # Convert Original MIDI to WAV
         fs = FluidSynth(soundfont_path_1)
         fs.midi_to_audio(midi_file, 'music_output/output.wav')
+        st.title("Original output")
         audio_path = 'music_output/output.wav'
 
         plot_waveform(audio_path)
@@ -176,11 +175,9 @@ def show():
         #          """)
 
         st.write("""
-                Note:
 
-                The audio quality and overall harmony may vary. This can be attributed to the synth soundfont (.s2f) utilized (best I could find).
-                But, the idea is that you can import the file import a digital audio workstation like GarageBand
-                and experiment with whichever sound you like.
+                same output, but passed through a synth soundfound
+
                  """)
         st.audio(edm_track)
 
@@ -188,9 +185,8 @@ def show():
         garageband_edited = 'https://storage.googleapis.com/aria-ai-bucket/track2.mp3'
 
         st.write("""
-                 Example:
 
-                    GarageBand post production.
+                    You can download the MIDI file and use it with software like GarageBand to create even more interesting sounds.
 
                  """)
         st.audio(garageband_edited)
