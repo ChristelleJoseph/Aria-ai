@@ -125,7 +125,7 @@ def show():
             fun_fact = st.empty()
             fun_fact.success("""
                              Named 'Aria' in honor of the exquisite solos that grace operas and the boldness of Arya Stark,
-                             this title reflects the synergy between artistic finesse and the smart intricacies of the LSTM model.
+                             this title reflects the synergy between artistic finesse and the smart intricacies of the Neural Network.
 
                              """)
 
