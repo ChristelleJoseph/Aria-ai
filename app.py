@@ -117,7 +117,7 @@ def show():
         placeholder.text("Generating Music...")
         for i in range(40):
             placeholder.text(f"Generating Music{'.' * (i % 4 + 1)}")
-            time.sleep(0.1)
+            time.sleep(0.5)
         add_parts = st.session_state['additional_instruments']
 
         col1, col2, col3 = st.columns([1, 2, 4])
@@ -164,9 +164,19 @@ def show():
         fs.midi_to_audio(midi_file, 'music_output/output_techno.wav')
         edm_track = 'music_output/output_techno.wav'
         st.title("EDM-ify")
+        # st.write("""
+        #         Note:
+
+        #         The audio quality and overall harmony may vary based on the accompanying instruments chosen. (Just 'lead instuments' give better results)
+        #         This can be attributed to the synth soundfont (.s2f) utilized (best I could find). See Technical details section.
+        #         But, the idea is that you can import the file import a digital audio workstation like GarageBand
+        #         and experiment with whichever sound you like.
+        #          """)
+
         st.write("""
-                Note: The audio quality and overall harmony may vary based on the accompanying instruments chosen. (Just 'lead instuments' give better results)
-                This can be attributed to the synth soundfont (.s2f) utilized (best I could find). See Technical details section.
+                Note:
+
+                The audio quality and overall harmony may vary. This can be attributed to the synth soundfont (.s2f) utilized (best I could find).
                 But, the idea is that you can import the file import a digital audio workstation like GarageBand
                 and experiment with whichever sound you like.
                  """)
@@ -176,15 +186,16 @@ def show():
         garageband_edited = 'https://storage.googleapis.com/aria-ai-bucket/track2.mp3'
 
         st.write("""
+                 Example:
 
-                    GarageBand post production (with accompanying instruments).
+                    GarageBand post production.
 
                  """)
         st.audio(garageband_edited)
 
-        col1, col2, col3 = st.columns([2,3,2])
+        col1, col2, col3, col4, col5 = st.columns([1,1,2,1,1])
         with open(midi_file, "rb") as file:
-            with col2:
+            with col3:
                 st.download_button(
                     label="Download MIDI",
                     data=file,
