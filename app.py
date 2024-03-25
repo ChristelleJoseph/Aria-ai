@@ -187,6 +187,7 @@ def show():
         st.write("""
 
                     You can download the MIDI file and use it with software like GarageBand to create even more interesting sounds.
+                    Here i'm using 'Sunrise Chord' from GarageBand.
 
                  """)
         st.audio(garageband_edited)
