@@ -152,7 +152,7 @@ def show():
         # Convert Original MIDI to WAV
         fs = FluidSynth(soundfont_path_1)
         fs.midi_to_audio(midi_file, 'music_output/output.wav')
-        st.title("Original output")
+        st.title("AI generated output")
         audio_path = 'music_output/output.wav'
 
         plot_waveform(audio_path)
