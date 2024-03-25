@@ -22,7 +22,7 @@ def show():
         st.markdown("""
                     <div>
 
-                    "Recently, the music world was abuzz with the release of a new single from Drake, marked by the catchy lyrics and beats that fans have come to expect.
+                    Recently, the music world was abuzz with the release of a new single from Drake, marked by the catchy lyrics and beats that fans have come to expect.
                     But the story took an unexpected turn when it was revealed that the mastermind behind this hit wasn't Drake at all—it was an artificial intelligence.
                     This revelation didn't just stir up the music industry; it sparked a profound fascination within me.
 
