@@ -176,7 +176,7 @@ def show():
 
         st.write("""
 
-                same output, but passed through a synth soundfound
+                same output, but passed through a synth soundfont
 
                  """)
         st.audio(edm_track)
