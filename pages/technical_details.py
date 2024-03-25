@@ -56,9 +56,12 @@ def show():
         st.header("The Model")
         st.write("""
 
-                 Recurrent Neural Networks (RNNs) are a class of artificial neural networks that is well suited for music generation, as they excel in recognizing and generating patterns in sequential data, such as musical notes and rhythms. RNNs incorporate internal memory to process sequences of musical elements, enabling them to capture the temporal dynamics and dependencies of music. This capability allows RNNs to produce music that flows logically over time, capturing the essence of musical composition through learned patterns from extensive datasets of music.
+        Recurrent Neural Networks (RNNs) are a type of artificial neural network optimized for pattern recognition in sequential data, like the melodies and rhythms found in music. By processing sequences of musical elements, RNNs retain internal memory, essential for understanding the temporal dynamics and dependencies in music compositions. This process, depicted below as a sequence of inputs labeled A, B, C, and D, allows RNNs to generate music that logically progresses over time, reflecting learned patterns from comprehensive music datasets.
 
-                Long Short-Term Memory (LSTM) networks, a variant of RNNs, are particularly useful for music generation. They solve the critical challenge of learning and retaining long-term musical dependencies, an area where traditional RNNs falter due to the vanishing gradient problem. This problem makes it difficult for RNNs to learn correlations between musical events that are distant from each other in a piece. LSTMs address this by incorporating memory cells equipped with gates that regulate information flow, thus preserving important musical motifs and themes over longer sequences.
+        A unique variant of RNNs, Long Short-Term Memory (LSTM) networks, further refine this process. LSTMs are specifically designed to overcome the challenges of long-term musical dependencies that traditional RNNs struggle with, mainly due to the vanishing gradient problem. This issue makes it tough for standard RNNs to maintain the learning of correlations between musical events separated by significant time gaps within a piece.
+
+        As shown in the diagram, LSTM networks enhance the basic RNN structure by incorporating memory cells that have gates to manage the flow of information. These gates are critical—they allow the network to retain or forget information, ensuring that significant musical motifs and themes are preserved across extended sequences. You can see this in the transition from inputs A, B, C, D to B, C, D, E, where the LSTM network selectively carries forward relevant information to inform the next sequence of music generation.
+
 
         """)
 
