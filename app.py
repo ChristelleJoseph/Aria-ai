@@ -124,8 +124,10 @@ def show():
         with col3:
             fun_fact = st.empty()
             fun_fact.success("""
-                             Named 'Aria' in honor of the exquisite solos that grace operas and the boldness of Arya Stark,
-                             this title reflects the synergy between artistic finesse and the smart intricacies of the Neural Network.
+
+                             Named 'Aria' in honor of the captivating solos that highlight operas and the boldness of Arya Stark,
+                            this title reflects the harmony between artistic elegance and the intelligent complexities of the Neural Network
+
 
                              """)
 
